@@ -41,6 +41,24 @@ class ApiController extends Controller
         ]);
     }
 
+    public function ipset(Request $request)
+    {
+        $validated = $request->validate([
+            'message' => 'required|string',
+        ]);
+
+        $ipInfo = new IpInfo();
+        $ipInfo->ip_address = $request->ip();
+        $ipInfo->params = $request->except(['message']);
+        $ipInfo->save();
+
+        return response()->json([
+            'success' => true,
+            'message' => $validated['message'],
+            'params' => $ipInfo->params,
+        ]);
+    }
+
     public function webhook(Request $request)
     {
         return response()->json([

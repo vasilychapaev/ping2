@@ -8,5 +8,10 @@ class IpInfo extends Model
 {
     protected $fillable = [
         'ip_address',
+        'params',
+    ];
+
+    protected $casts = [
+        'params' => 'array',
     ];
 }
