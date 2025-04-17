@@ -16,6 +16,6 @@ use App\Http\Controllers\IpInfoController;
 */
 Route::get('/ping', [ApiController::class, 'ping']);
 Route::get('/ipinfo', [ApiController::class, 'ipinfo']);
-Route::get('/ipdb', [ApiController::class, 'ipdb']);
+Route::post('/ipdb', [ApiController::class, 'ipdb']);
 Route::post('/webhook', [ApiController::class, 'webhook']);
-Route::get('/ipset', [ApiController::class, 'ipset']);
+Route::post('/ipset', [ApiController::class, 'ipset']);
